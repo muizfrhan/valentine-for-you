@@ -259,6 +259,7 @@
   Your browser does not support the audio element.
 </audio>
 
+
     <div class="ball"></div>
     <div class="cursor-text"></div>
 
@@ -2775,13 +2776,13 @@ function storyMoveButton(btn) {
 <script>
   const music = document.getElementById('bgMusic');
 
-  // Coba autoplay saat halaman load
   window.addEventListener('load', () => {
     music.play().catch(() => {
       console.log("Autoplay diblokir, browser memerlukan interaksi user.");
     });
   });
 </script>
+
 <script>
 function moveButton(btn) {
   btn.style.position = "absolute";
