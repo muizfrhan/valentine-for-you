@@ -248,16 +248,58 @@
   color: #fff; /* white */
 }
 
+.valentine-music-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.valentine-music-box {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  animation: valentineFade 0.4s ease;
+}
+
+.valentine-music-box button {
+  margin-top: 15px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  background: #ff4d6d;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.valentine-music-box button:hover {
+  background: #ff1e4d;
+}
+
+@keyframes valentineFade {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
+}
 
     </style>
   </head>
 
   <body class="home-1">
     <!-- Audio Player Autoplay -->
-<audio id="bgMusic" autoplay loop>
-  <source src="./public/music/mp3.mp3" type="audio/mp3">
-  Your browser does not support the audio element.
-</audio>
+
+
+
 
 
     <div class="ball"></div>
@@ -2619,6 +2661,16 @@
       </symbol>
     </svg>
     <!-- SVG ======================-->
+<audio id="bgMusic" loop>
+  <source src="https://files.catbox.moe/s4x2mq.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener("click", function () {
+    const music = document.getElementById("bgMusic");
+    music.play();
+  }, { once: true });
+</script>
 
     <!-- Scripts/Plugins ======================-->
 
@@ -2773,15 +2825,8 @@ function storyMoveButton(btn) {
   btn.style.left = Math.random() * 150 + "px";
 }
 </script>
-<script>
-  const music = document.getElementById('bgMusic');
 
-  window.addEventListener('load', () => {
-    music.play().catch(() => {
-      console.log("Autoplay diblokir, browser memerlukan interaksi user.");
-    });
-  });
-</script>
+
 
 <script>
 function moveButton(btn) {
